@@ -25,18 +25,6 @@
 
     <div id="content">
 
-  {% block content %}{% endblock %}</div>
-    
-  {% with messages = get_flashed_messages() %} <!--This returns a list of the messages stored in the session.-->
-  {% if messages %}
-      {% for message in messages %} <!--Jinja for loop-->
-    
-        <div>{{ message }}</div> <!--Make a divider for each message-->
-
-      {% endfor %}
-    {% endif %}
-  {% endwith %}
-
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
