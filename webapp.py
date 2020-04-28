@@ -82,7 +82,7 @@ def renderPage1():
 
 @app.route('/page2')
 def renderPage2():
-message = request.args('message')
+    message = request.args('message')
     if 'user_data' in session:
         user_data_pprint = pprint.pformat(session['user_data']['public_repos'])#format the user data nicely
     else:
