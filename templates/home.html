@@ -3,6 +3,17 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
+
+  {% with messages = get_flashed_messages() %} <!--This returns a list of the messages stored in the session.-->
+    {% if messages %}
+      {% for message in messages %} <!--Jinja for loop-->
+    
+        <div>{{ message }}</div> <!--Make a divider for each message-->
+
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
   <h1>Home</h1>
   <ul>
     <li><a href="/page1">That thing we do</a></li>
