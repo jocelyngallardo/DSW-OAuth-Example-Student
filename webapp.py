@@ -48,7 +48,7 @@ def login():
 def logout():
     session.clear()
     message = flash('You were logged out')
-    return render_template('layout.html', message=message)
+    return render_template('home.html', message=message)
 
 @app.route('/login/authorized')#the route should match the callback URL registered with the OAuth provider
 def authorized():
@@ -68,24 +68,26 @@ def authorized():
             session.clear()
             print(inst)
             message = flash('Unable to login.  Please try again.')
-    return render_template('layout.html', message=message)
+    return render_template('home.html', message=message)
 
 
 @app.route('/page1')
 def renderPage1():
+    message = request.args('message')
     if 'user_data' in session:
         user_data_pprint = pprint.pformat(session['user_data'])#format the user data nicely
     else:
         user_data_pprint = '';
-    return render_template('page1.html',dump_user_data=user_data_pprint)
+    return render_template('page1.html',dump_user_data=user_data_pprint, message=message)
 
 @app.route('/page2')
 def renderPage2():
+message = request.args('message')
     if 'user_data' in session:
         user_data_pprint = pprint.pformat(session['user_data']['public_repos'])#format the user data nicely
     else:
         user_data_pprint = '';
-    return render_template('page2.html',dump_user_data=user_data_pprint)
+    return render_template('page2.html',dump_user_data=user_data_pprint, message=message)
 
 @github.tokengetter
 def get_github_oauth_token():
