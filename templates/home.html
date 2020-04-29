@@ -11,6 +11,8 @@
           {% set cls = "alert alert-success alert-dismissible" %}
         {% elif category == "error" %}
           {% set cls = "alert alert-warning alert-dismissible" %}
+        {% elif category == "warning" %}
+          {% set cls = "alert alert-danger alert-dismissible" %}
         {% endif %}
     
         <div class="{{ cls }}">
