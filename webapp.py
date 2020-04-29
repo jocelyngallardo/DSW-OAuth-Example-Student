@@ -66,7 +66,7 @@ def authorized():
             #clear the session and give error message
             session.clear()
             print(inst)
-            flash('Unable to login.  Please try again.')
+            flash('Unable to login.  Please try again.', error)
     return render_template('home.html')
 
 
