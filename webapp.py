@@ -46,7 +46,7 @@ def login():
 @app.route('/logout')
 def logout():
     session.clear()
-    flash('You were logged out')
+    flash('You were logged out', 'message')
     return render_template('home.html')
 
 @app.route('/login/authorized')#the route should match the callback URL registered with the OAuth provider
@@ -55,7 +55,7 @@ def authorized():
     print(resp)
     if resp is None:
         session.clear()
-        flash('Access denied: reason=' + request.args['error'] + ' error=' + request.args['error_description'] + ' full=' + pprint.pformat(request.args))
+        flash('Access denied: reason=' + request.args['error'] + ' error=' + request.args['error_description'] + ' full=' + pprint.pformat(request.args), 'message')
     else:
         try:
             #save user data and set log in message
@@ -66,7 +66,7 @@ def authorized():
             #clear the session and give error message
             session.clear()
             print(inst)
-            flash('Unable to login.  Please try again.', error)
+            flash('Unable to login.  Please try again.', 'error')
     return render_template('home.html')
 
 
