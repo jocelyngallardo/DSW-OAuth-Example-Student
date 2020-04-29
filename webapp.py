@@ -61,7 +61,7 @@ def authorized():
             #save user data and set log in message
             session['github_token'] = (resp['access_token'],'')
             session['user_data'] = github.get('user').data
-            flash('You were successfully logged in as ' + session['user_data']['login'] + '.')
+            flash('You were successfully logged in as ' + session['user_data']['login'] + '.', 'message')
         except Exception as inst:
             #clear the session and give error message
             session.clear()
