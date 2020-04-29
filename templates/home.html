@@ -6,9 +6,14 @@
 
   {% with messages = get_flashed_messages() %} <!--This returns a list of the messages stored in the session.-->
     {% if messages %}
-      {% for message in messages %} <!--Jinja for loop-->
+      {% for category, message in messages %}
+        {% if category == "message" %}
+          {% set cls = "alert alert-success alert-dismissible" %}
+        {% elif category == "error" %}
+          {% set cls = "alert alert-warning alert-dismissible" %}
+        {% endif %}
     
-        <div class="alert alert-success alert-dismissible">
+        <div class="{{ cls }}">
           <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
           {{message}}
         </div> <!--Make a divider for each message-->
