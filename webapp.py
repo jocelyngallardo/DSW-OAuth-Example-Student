@@ -55,7 +55,7 @@ def authorized():
     print(resp)
     if resp is None:
         session.clear()
-        flash('Access denied: reason=' + request.args['error'] + ' error=' + request.args['error_description'] + ' full=' + pprint.pformat(request.args), 'message')
+        flash('Access denied: reason=' + request.args['error'] + ' error=' + request.args['error_description'] + ' full=' + pprint.pformat(request.args), 'warning')
     else:
         try:
             #save user data and set log in message
