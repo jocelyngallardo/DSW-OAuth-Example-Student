@@ -5,19 +5,6 @@
 {% block content %}
   <h1>This is Page 2</h1>
 
-  {% with messages = get_flashed_messages() %} <!--This returns a list of the messages stored in the session.-->
-    {% if messages %}
-      {% for message in messages %} <!--Jinja for loop-->
-    
-        <div class="alert alert-success alert-dismissible">
-          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-          {{message}}
-        </div> <!--Make a divider for each message-->
-
-      {% endfor %}
-    {% endif %}
-  {% endwith %}
-
 <p>The number of public repositories that you have is:</p>
 
 <pre>
